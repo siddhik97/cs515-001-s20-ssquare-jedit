@@ -18,6 +18,7 @@
 package com.ultramixer.jarbundler;
 
 // This package's imports
+//this is new change
 
 // Java I/O
 import java.io.BufferedWriter;
@@ -43,7 +44,7 @@ import org.apache.tools.ant.Project;
 		import org.apache.tools.ant.types.FileList;
 import org.apache.tools.ant.types.FileSet;
 import org.apache.tools.ant.types.PatternSet;
-
+import org.apache.tools.ant.util.FileUtils;
 import org.apache.tools.ant.taskdefs.MatchingTask;
 import org.apache.tools.ant.taskdefs.Chmod;
 import org.apache.tools.ant.taskdefs.Delete;
