@@ -56,6 +56,8 @@ public class HoverSetStatusMouseHandler extends MouseAdapter
 		{
 			GUIUtilities.getView((Component)evt.getSource())
 				.getStatus().setMessage(msg);
+//			GUIUtilities.getView((Component)evt.getSource())
+//			.getStatus().setMessage("Hover");
 			msgSet = true;
 		}
 	}

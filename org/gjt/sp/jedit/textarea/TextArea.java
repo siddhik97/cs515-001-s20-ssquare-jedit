@@ -679,6 +679,16 @@ public abstract class TextArea extends JPanel
 	{
 		setFirstLine(getFirstLine() - 1);
 	} //}}}
+	
+	public void hideScrollBar(boolean b) {
+		if(b == true) {
+			vertical.hide();
+			horizontal.hide();
+		}else {
+			vertical.show();
+			horizontal.show();
+		}
+	}
 
 	//{{{ scrollUpPage() method
 	/**

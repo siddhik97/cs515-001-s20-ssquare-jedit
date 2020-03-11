@@ -117,6 +117,9 @@ public class StatusBarOptionPane extends AbstractOptionPane
 		showCaretLineNumber = new JCheckBox(jEdit.getProperty("options.status.caret.linenumber", "Show caret line number"),
 			jEdit.getBooleanProperty("view.status.show-caret-linenumber", true));
 		showCaretLineNumber.setName("showCaretLineNumber");
+		showCaretWords = new JCheckBox(jEdit.getProperty("options.status.caret.words", "Show caret word number"),
+				jEdit.getBooleanProperty("view.status.show-caret-words", true));
+		showCaretWords.setName("showCaretWords");
 		showCaretDot = new JCheckBox(jEdit.getProperty("options.status.caret.dot", "Show caret offset from start of line"),
 			jEdit.getBooleanProperty("view.status.show-caret-dot", true));
 		showCaretDot.setName("showCaretDot");
@@ -130,6 +133,7 @@ public class StatusBarOptionPane extends AbstractOptionPane
 			jEdit.getBooleanProperty("view.status.show-caret-bufferlength", true));
 		showCaretBufferLength.setName("showCaretBufferLength");
 		optionsPanel.addComponent(showCaretLineNumber);
+		optionsPanel.addComponent(showCaretWords);
 		optionsPanel.addComponent(showCaretDot);
 		optionsPanel.addComponent(showCaretVirtual);
 		optionsPanel.addComponent(showCaretOffset);
@@ -233,6 +237,7 @@ public class StatusBarOptionPane extends AbstractOptionPane
 		jEdit.setProperty("view.status",buf.toString());
 
 		jEdit.setBooleanProperty("view.status.show-caret-linenumber", showCaretLineNumber.isSelected());
+		jEdit.setBooleanProperty("view.status.show-caret-words", showCaretWords.isSelected());
 		jEdit.setBooleanProperty("view.status.show-caret-dot", showCaretDot.isSelected());
 		jEdit.setBooleanProperty("view.status.show-caret-virtual", showCaretVirtual.isSelected());
 		jEdit.setBooleanProperty("view.status.show-caret-offset", showCaretOffset.isSelected());
@@ -258,6 +263,7 @@ public class StatusBarOptionPane extends AbstractOptionPane
 	private RolloverButton edit;
 
 	private JCheckBox showCaretLineNumber;
+	private JCheckBox showCaretWords;
 	private JCheckBox showCaretDot;
 	private JCheckBox showCaretVirtual;
 	private JCheckBox showCaretOffset;

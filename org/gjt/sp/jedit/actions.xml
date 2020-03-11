@@ -1437,13 +1437,24 @@
 
 <ACTION NAME="toggle-buffer-switcher">
 <CODE>
-    b = !jEdit.getBooleanProperty("view.showBufferSwitcher");
-    jEdit.setBooleanProperty("view.showBufferSwitcher", b);
+    b = !jEdit.getBooleanProperty("view.showScrollBar");
+    jEdit.setBooleanProperty("view.showScrollBar", b);
     view.updateBufferSwitcherStates();
     if (b) editPane.focusBufferSwitcher();
 </CODE>
 <IS_SELECTED>
     jEdit.getBooleanProperty("view.showBufferSwitcher");
+</IS_SELECTED>
+</ACTION>
+
+<ACTION NAME="toggle-scroll-bar">
+<CODE>
+    b = !jEdit.getBooleanProperty("view.showScrollBar");
+    jEdit.setBooleanProperty("view.showScrollBar", b);
+    textArea.hideScrollBar(b);
+</CODE>
+<IS_SELECTED>
+    jEdit.getBooleanProperty("view.showScrollBar");
 </IS_SELECTED>
 </ACTION>
 

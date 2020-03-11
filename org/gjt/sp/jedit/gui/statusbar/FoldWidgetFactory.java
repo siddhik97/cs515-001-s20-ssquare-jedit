@@ -80,6 +80,7 @@ public class FoldWidgetFactory implements StatusWidgetFactory
 			Buffer buffer = view.getBuffer();
 			if (buffer.isLoaded())
 				fold.setText((String)view.getBuffer().getProperty("folding"));
+				//fold.setText("Fold");
 		}
 		
 		public void propertiesChanged()
