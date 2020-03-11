@@ -307,6 +307,7 @@ public class EditPane extends JPanel implements BufferSetListener
 	 * @since jEdit 4.3pre18
 	 * (previously known as showBufferSwitcher)
 	 */
+	
 	public void focusBufferSwitcher()
 	{
 		if(bufferSwitcher == null)
@@ -323,7 +324,7 @@ public class EditPane extends JPanel implements BufferSetListener
 
 			});
 		}
-	} //}}}
+	}//}}}
 
 	//{{{ saveCaretInfo() method
 	/**

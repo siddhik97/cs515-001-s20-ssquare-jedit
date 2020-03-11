@@ -269,6 +269,9 @@ prev-buffer.label=Go to $Previous Buffer
 next-buffer.label=Go to $Next Buffer
 recent-buffer.label=Go to $Recent Buffer
 toggle-buffer-switcher.label=Toggle $Buffer Switcher
+
+toggle-scroll-bar.label=Toggle $Scroll Bar
+
 focus-buffer-switcher.label=Focus on Buffer S$witcher
 toggle-line-numbers.label=Toggle $Line Numbers
 toggle-statusbar.label=Toggle S$tatus Bar
@@ -1788,6 +1791,7 @@ options.status.edit.widgetRadioButton=widget
 options.status.edit.labelLabel=Type a label:
 options.status.edit.widgetLabel=Choose a widget:
 options.status.caret.linenumber=Show caret line number
+options.status.caret.words=Show caret word number
 options.status.caret.dot=Show caret offset from start of line
 options.status.caret.virtual=Show caret virtual offset from start of line
 options.status.caret.offset=Show caret offset from start of file

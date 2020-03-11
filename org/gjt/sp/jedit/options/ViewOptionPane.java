@@ -132,7 +132,7 @@ public class ViewOptionPane extends AbstractOptionPane
 			"view.showBufferSwitcher"));
 		addComponent(showBufferSwitcher);
 		showBufferSwitcher.addActionListener(actionHandler);
-
+		
 		/* Sort buffer switcher */
 		sortBufferSwitcher = new JCheckBox(jEdit.getProperty(
 			"options.view.bufferswitcher.sortBuffers"));

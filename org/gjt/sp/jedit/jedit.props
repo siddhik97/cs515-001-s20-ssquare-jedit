@@ -225,6 +225,8 @@ view.showSearchbar=false
 # Show buffer switcher?
 view.showBufferSwitcher=true
 
+view.showScrollBar=true
+
 # Show full path in title bar?
 view.showFullPath=false
 

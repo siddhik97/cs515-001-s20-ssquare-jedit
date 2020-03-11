@@ -365,7 +365,9 @@ public class StatusBar extends JPanel
 
 			int start = textArea.getLineStartOffset(currLine);
 			int dot = caretPosition - start;
-
+			int total_word_count = textArea.getText().split("\\s").length;
+			int caret_word_count = textArea.getText(0, caretPosition).split("\\s").length;
+			
 			if(dot < 0)
 				return;
 
@@ -380,11 +382,13 @@ public class StatusBar extends JPanel
 
 			if (jEdit.getBooleanProperty("view.status.show-caret-linenumber", true))
 			{
+				//buf.append("currLine,");
 				buf.append(currLine + 1);
 				buf.append(',');
 			}
 			if (jEdit.getBooleanProperty("view.status.show-caret-dot", true))
 			{
+				//buf.append("dot");
 				buf.append(dot + 1);
 			}
 			if (jEdit.getBooleanProperty("view.status.show-caret-virtual", true) &&
@@ -397,6 +401,7 @@ public class StatusBar extends JPanel
 			{
 				buf.append(' ');
 			}
+			
 			if (jEdit.getBooleanProperty("view.status.show-caret-offset", true) &&
 				jEdit.getBooleanProperty("view.status.show-caret-bufferlength", true))
 			{
@@ -405,6 +410,13 @@ public class StatusBar extends JPanel
 				buf.append('/');
 				buf.append(bufferLength);
 				buf.append(')');
+			}
+			if (jEdit.getBooleanProperty("view.status.show-caret-words", true)) {
+				buf.append("(");
+				buf.append(caret_word_count);
+				buf.append("/");
+				buf.append(total_word_count);
+				buf.append(")");
 			}
 			else if (jEdit.getBooleanProperty("view.status.show-caret-offset", true))
 			{
