@@ -681,7 +681,7 @@ public abstract class TextArea extends JPanel
 	} //}}}
 	
 	public void hideScrollBar(boolean b) {
-		if(b == true) {
+		if(b == false) {
 			vertical.hide();
 			horizontal.hide();
 		}else {
