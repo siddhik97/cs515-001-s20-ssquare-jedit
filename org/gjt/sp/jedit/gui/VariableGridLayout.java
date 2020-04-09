@@ -108,7 +108,7 @@ public class VariableGridLayout implements LayoutManager2, java.io.Serializable
 		{
 			throw new IllegalArgumentException("vgap cannot be negative; value is " + vgap);
 		}
-		this.mode = mode;
+		this.setMode(mode);
 		this.size = size;
 		this.hgap = hgap;
 		this.vgap = vgap;
@@ -392,9 +392,9 @@ public class VariableGridLayout implements LayoutManager2, java.io.Serializable
 	public String toString()
 	{
 		return getClass().getName() + "[mode="
-			+ ((FIXED_NUM_ROWS == mode) ? "FIXED_NUM_ROWS"
-			   : ((FIXED_NUM_COLUMNS == mode) ? "FIXED_NUM_COLUMNS"
-			      : "UNKNOWN(" + mode + ")")) + ",size=" + size
+			+ ((FIXED_NUM_ROWS == getMode()) ? "FIXED_NUM_ROWS"
+			   : ((FIXED_NUM_COLUMNS == getMode()) ? "FIXED_NUM_COLUMNS"
+			      : "UNKNOWN(" + getMode() + ")")) + ",size=" + size
 			+ ",hgap=" + hgap + ",vgap=" + vgap
 			+ ",takeSizesIntoAccount=" + takeSizesIntoAccount
 			+ ",distanceToBorders=" + distanceToBorders + "]";
@@ -494,16 +494,7 @@ public class VariableGridLayout implements LayoutManager2, java.io.Serializable
 		int ncomponents = container.getComponentCount();
 		int old_nrows = nrows;
 		int old_ncols = ncols;
-		if (this.mode == FIXED_NUM_ROWS)
-		{
-			nrows = this.size;
-			ncols = (ncomponents + nrows - 1) / nrows;
-		}
-		else
-		{
-			ncols = this.size;
-			nrows = (ncomponents + ncols - 1) / ncols;
-		}
+		mode.update(ncomponents, this);
 		if (old_nrows != nrows)
 		{
 			row_heights = new int[nrows];
@@ -625,7 +616,7 @@ public class VariableGridLayout implements LayoutManager2, java.io.Serializable
 		}
 	}
 
-	private int mode;
+	private Mode mode;
 	private int size;
 	private int hgap;
 	private int vgap;
@@ -639,4 +630,35 @@ public class VariableGridLayout implements LayoutManager2, java.io.Serializable
 	private transient int[] col_widths = null;
 	private transient int[] maximum_row_heights = null;
 	private transient int[] maximum_col_widths = null;
+	public void setMode(int mode) {
+		switch (mode) {
+		case FIXED_NUM_ROWS:
+			this.mode = new FixedNumRows();
+			break;
+		case FIXED_NUM_COLUMNS:
+			this.mode = new FixedNumColumns();
+			break;
+		default:
+			this.mode = null;
+			break;
+		}
+	}
+	public int getMode() {
+		return mode.getMode();
+	}
+	public int getSize() {
+		return size;
+	}
+	public int getNrows() {
+		return nrows;
+	}
+	public int getNcols() {
+		return ncols;
+	}
+	public void setNrows(int nrows) {
+		this.nrows = nrows;
+	}
+	public void setNcols(int ncols) {
+		this.ncols = ncols;
+	}
 }

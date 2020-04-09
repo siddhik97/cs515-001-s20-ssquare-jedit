@@ -546,6 +546,13 @@ public class UndoManager
 
 		int offset;
 		String strRemove, strInsert;
+		public CompressedReplace add(String strInsert, String strRemove, IntegerArray offsets, int offset) {
+			if (this.strInsert.equals(this.strInsert) && this.strRemove.equals(this.strRemove)) {
+				offsets.add(this.offset);
+				return (CompressedReplace) this;
+			}
+			return null;
+		}
 	} //}}}
 
 	//{{{ CompressedReplace class
@@ -562,12 +569,7 @@ public class UndoManager
 		//{{{ add() method
 		CompressedReplace add(Replace rep)
 		{
-			if(this.strInsert.equals(rep.strInsert) && this.strRemove.equals(rep.strRemove))
-			{
-				offsets.add(rep.offset);
-				return this;
-			}
-			return null;
+			return rep.add(strInsert, strRemove, offsets, offset);
 		} //}}}
 
 		//{{{ undo() method
